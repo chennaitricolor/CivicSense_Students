@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  jenkins:
+    image: dhileepbalaji/jenkins-docker-compose:latest
+    restart: unless-stopped
+    ports:
+      - "1443:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    container_name: jenkins-docker
+
+volumes:
+  jenkins_home:
